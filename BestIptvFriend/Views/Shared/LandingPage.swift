@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LandingPage.swift
 //  BestIptvFriend
 //
 //  Created by Alexandre Schmidt on 15/12/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LandingPage: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    LandingPage()
 }
