@@ -5,7 +5,9 @@
 //  Created by Alexandre Schmidt on 15/12/2024.
 //
 
+#if os(iOS)
 import SwiftUI
+import UIKit
 
 struct LandingPageIOS: View {
     var body: some View {
@@ -38,3 +40,5 @@ struct LandingPageIOS: View {
 #Preview {
     LandingPageIOS()
 }
+#endif
+

@@ -4,8 +4,10 @@
 //
 //  Created by Alexandre Schmidt on 15/12/2024.
 //
-
+#if os(macOS)
 import SwiftUI
+import AppKit
+
 
 struct LandingPageMacOS: View {
     var body: some View {
@@ -22,3 +24,4 @@ struct LandingPageMacOS: View {
 #Preview {
     LandingPageMacOS()
 }
+#endif
