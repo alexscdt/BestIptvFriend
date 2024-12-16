@@ -9,13 +9,15 @@ import SwiftUI
 
 struct LandingPage: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            #if os(iOS)
+            LandingPageIOS()
+            #elseif os(macOS)
+            LandingPageMacOS()
+            #else
+            Text("Plateforme non prise en charge")
+            #endif
         }
-        .padding()
     }
 }
 
