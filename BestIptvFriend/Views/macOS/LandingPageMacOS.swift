@@ -116,7 +116,7 @@ struct LandingPageMacOS: View {
                         .padding(10)
                         .buttonStyle(BorderlessButtonStyle())
                         .sheet(isPresented: $showSheet) {
-                            AddIPTVView(iptvManager: iptvManager)
+                            AddIPTVViewMacOs(iptvManager: iptvManager)
                         }
                         
                     }

@@ -1,13 +1,15 @@
 //
-//  AddIPTVViewMacOS.swift
+//  AddIPTVViewIOS.swift
 //  BestIptvFriend
 //
 //  Created by Alexandre Schmidt on 18/12/2024.
 //
-#if os(macOS)
+
+#if os(iOS)
+import Foundation
 import SwiftUI
 
-struct AddIPTVViewMacOs: View {
+struct AddIPTVViewIOS: View {
     @Environment(\.dismiss) var dismiss
     @State private var iptvName : String = ""
     @State private var iptvUrl : String = ""
@@ -82,7 +84,7 @@ struct AddIPTVViewMacOs: View {
 }
 
 #Preview {
-    AddIPTVViewMacOs(iptvManager: IPTVManager())
+    AddIPTVViewIOS(iptvManager: IPTVManager())
 }
 
 #endif
