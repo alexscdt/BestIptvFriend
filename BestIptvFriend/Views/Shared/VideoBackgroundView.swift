@@ -95,8 +95,6 @@ struct VideoPlayerView: NSViewRepresentable {
         view.layer = CALayer()
         view.layer?.addSublayer(playerLayer)
 
-        centerVideo(playerLayer: playerLayer)
-
         player.actionAtItemEnd = .none
         NotificationCenter.default.addObserver(
             forName: .AVPlayerItemDidPlayToEndTime,
@@ -113,13 +111,5 @@ struct VideoPlayerView: NSViewRepresentable {
 
     func updateNSView(_ nsView: NSView, context: Context) {}
 
-    private func centerVideo(playerLayer: AVPlayerLayer) {
-        guard let screen = NSScreen.main else { return }
-        let offsetY = screen.frame.height / 2
-
-        playerLayer.setAffineTransform(
-            CGAffineTransform(translationX: 1.5, y: -offsetY)
-        )
-    }
 }
 #endif
