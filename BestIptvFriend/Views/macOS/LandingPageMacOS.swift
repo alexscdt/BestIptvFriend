@@ -11,7 +11,7 @@ import AppKit
 struct LandingPageMacOS: View {
     @State private var showSheet = false
     @StateObject private var iptvManager = IPTVManager()
-    
+
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
@@ -21,18 +21,18 @@ struct LandingPageMacOS: View {
                         .clipped()
                         .background(Color.black)
                 }
-                
+
                 ZStack {
                     Rectangle()
                         .fill(Color("CustomBackground"))
-                    
+
                     VStack {
                         Text("📋 Mes IPTV")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(Color("CustomButonTitle"))
                             .padding(.bottom)
-                        
+
                         if iptvManager.iptvList.isEmpty {
                             Text("Aucune IPTV enregistrée.")
                                 .foregroundColor(.gray)
@@ -58,7 +58,7 @@ struct LandingPageMacOS: View {
                                                         .fontWeight(.black)
                                                         .foregroundColor(Color("CustomButonTitle"))
                                                 }
-                                                
+
                                                 HStack {
                                                     Image(systemName: "globe")
                                                         .foregroundColor(.green)
@@ -68,7 +68,7 @@ struct LandingPageMacOS: View {
                                                         .font(.subheadline)
                                                         .fontWeight(.bold)
                                                 }
-                                                
+
                                                 if !iptv.username.isEmpty {
                                                     HStack {
                                                         Image(systemName: "person")
@@ -82,16 +82,27 @@ struct LandingPageMacOS: View {
                                                 }
                                             }
                                             Spacer()
-                                            
-                                            Button(action: {
-                                                iptvManager.removeIPTV(iptv: iptv)
-                                            }) {
-                                                Text("❌")
-                                                    .font(.title3)
-                                                    .foregroundColor(.red)
-                                                    .padding(5)
+                                            VStack(alignment: .leading, spacing: 8) {
+                                                Button(action: {
+                                                    iptvManager.removeIPTV(iptv: iptv)
+                                                }) {
+                                                    Text("❌")
+                                                        .font(.title3)
+                                                        .foregroundColor(.red)
+                                                        .padding(5)
+                                                }
+                                                .buttonStyle(BorderlessButtonStyle())
+                                                Button(action: {
+                                                    ConnectIptv().connectIptv(iptv: iptv)
+                                                }) {
+                                                    Text("✈️")
+                                                        .font(.title3)
+                                                        .foregroundColor(.red)
+                                                        .padding(5)
+                                                }
+                                                .buttonStyle(BorderlessButtonStyle())
                                             }
-                                            .buttonStyle(BorderlessButtonStyle())
+
                                         }
                                         .padding(10)
                                     }
@@ -99,11 +110,11 @@ struct LandingPageMacOS: View {
                                 }
 
                                 }
-                    
+
                             }
-                            
+
                         }
-                        
+
                         Button(action: {showSheet = true}) {
                             Text("Add IPTV")
                                 .font(.headline)
@@ -118,7 +129,7 @@ struct LandingPageMacOS: View {
                         .sheet(isPresented: $showSheet) {
                             AddIPTVViewMacOs(iptvManager: iptvManager)
                         }
-                        
+
                     }
                     .frame(maxWidth: .infinity)
                 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <!-- Autoriser temporairement toutes les requêtes pour déboguer -->
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+
+        <key>NSExceptionDomains</key>
+        <dict>
+			<key>185.191.126.233</key> <!-- Adresse IP directe -->
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+            <key>fhd.iptvxvod.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+            <!-- Domaine avec port spécifique -->
+            <key>fhd.iptvxvod.com:2103</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.example.app</string> <!-- Remplacez par le bundle ID de votre app -->
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>example-scheme</string> <!-- Remplacez par votre schéma URL -->
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>
